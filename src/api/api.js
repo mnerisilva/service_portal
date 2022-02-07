@@ -5,7 +5,27 @@ export const contratante = [
     nome: "Carlos Alberto Xavier",
     identificacao: "55853676920",
     pessoa: "pessoa física",
-    declaracoes: [
+    foto: "assets/faces/male/9.jpg",
+    endereco: [
+      {
+        rua: "Rua Trajano",
+        numero: "15",
+        complemento: "sala 201",
+        bairro: "Centro",
+        cep: "88085-260",
+        municipio: "Florianópolis",
+        uf: "SC",
+      },
+    ],
+    contato: [
+      {
+        celular: "48 98825-2333",
+        fixo: "48 3256-5856",
+        whats: "48 98825-2333",
+        email: "carlosal@gmail.com",
+      },
+    ],
+    declaracao: [
       {
         id: 1,
         codigo_unico: "55853676920",
@@ -64,7 +84,27 @@ export const contratante = [
     nome: "Nuno Leal Martins",
     identificacao: "55853676920",
     pessoa: "pessoa física",
-    declaracoes: [
+    foto: "assets/faces/male/4.jpg",
+    endereco: [
+      {
+        rua: "Rua Deodoro",
+        numero: "18",
+        complemento: "",
+        bairro: "Centro",
+        cep: "88010-120",
+        municipio: "Florianópolis",
+        uf: "SC",
+      },
+    ],
+    contato: [
+      {
+        celular: "48 99129-5353",
+        fixo: "48 3249-2876",
+        whats: "48 99129-5353",
+        email: "nunoleal@gmail.com",
+      },
+    ],
+    declaracao: [
       {
         id: 1,
         codigo_unico: "53353678935",
