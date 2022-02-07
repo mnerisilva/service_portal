@@ -1,9 +1,17 @@
+import { useState, useEffect } from "react";
+import Contratante from "./components/contratante/Contratante";
 import "./App.css";
+import { contratante } from "./api/api";
 function App() {
+  const [list, setList] = useState(contratante);
+  useEffect(() => {}, []);
+
   return (
     <div className="container">
       <h1>Dashboard</h1>
-
+      <ul>
+        <Contratante lista={list} />
+      </ul>
       <div className="row">
         <div className="col-6 col-sm-4 col-lg-2">
           <div className="card">
@@ -109,24 +117,24 @@ function App() {
                     <td>Initial commit</td>
                     <td className="text-nowrap">May 6, 2018</td>
                     <td className="w-1">
-                      <a href="#" className="icon">
+                      <a href="" className="icon">
                         <i className="fa fa-trash"></i>
                       </a>
                     </td>
                   </tr>
-                  {/*}<!-- <tr>
-                  <td>
-                    <span className="avatar">BM</span>
-                  </td>
-                  <td>Russell Gibson</td>
-                  <td>Main structure</td>
-                  <td className="text-nowrap">April 22, 2018</td>
-                  <td>
-                    <a href="#" className="icon">
-                      <i className="fa fa-trash"></i>
-                    </a>
-                  </td>
-                </tr> -->{*/}
+                  <tr>
+                    <td>
+                      <span className="avatar">BM</span>
+                    </td>
+                    <td>Russell Gibson</td>
+                    <td>Main structure</td>
+                    <td className="text-nowrap">April 22, 2018</td>
+                    <td>
+                      <a href="" className="icon">
+                        <i className="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
                   <tr>
                     <td>
                       <span
@@ -140,7 +148,7 @@ function App() {
                     <td>Left sidebar adjustments</td>
                     <td className="text-nowrap">April 15, 2018</td>
                     <td>
-                      <a href="#" className="icon">
+                      <a href="" className="icon">
                         <i className="fa fa-trash"></i>
                       </a>
                     </td>
@@ -158,7 +166,7 @@ function App() {
                     <td>Topbar dropdown style</td>
                     <td className="text-nowrap">April 8, 2018</td>
                     <td>
-                      <a href="#" className="icon">
+                      <a href="" className="icon">
                         <i className="fa fa-trash"></i>
                       </a>
                     </td>
@@ -176,7 +184,7 @@ function App() {
                     <td>Fixes #625</td>
                     <td className="text-nowrap">April 9, 2018</td>
                     <td>
-                      <a href="#" className="icon">
+                      <a href="" className="icon">
                         <i className="fa fa-trash"></i>
                       </a>
                     </td>
@@ -258,7 +266,7 @@ function App() {
               </span>
               <div>
                 <h4 className="m-0">
-                  <a href="#">
+                  <a href="">
                     132
                     <small>Sales</small>
                   </a>
@@ -277,7 +285,7 @@ function App() {
               </span>
               <div>
                 <h4 className="m-0">
-                  <a href="#">
+                  <a href="">
                     78
                     <small>Orders</small>
                   </a>
@@ -296,7 +304,7 @@ function App() {
               </span>
               <div>
                 <h4 className="m-0">
-                  <a href="#">
+                  <a href="">
                     1,352
                     <small>Members</small>
                   </a>
@@ -315,7 +323,7 @@ function App() {
               </span>
               <div>
                 <h4 className="m-0">
-                  <a href="#">
+                  <a href="">
                     132
                     <small>Comments</small>
                   </a>
