@@ -5,12 +5,34 @@ import Infosection from "./components/infosection/Infosection";
 import Content from "./components/contratante/main/Content";
 function App() {
   const [list, setList] = useState(contratante);
-  useEffect(() => {}, []);
+  const [listpending, setListpending] = useState([]);
+  const [pendingcount, setPendingcount] = useState(0);
+  const [concludedcount, setConcludedcount] = useState(0);
+  useEffect(() => {
+    console.log("entrou no useEffect");
+    let pending_contador = 0;
+    let concluded_contador = 0;
+    list.forEach(function (elemento) {
+      elemento.declaracao.forEach(function (ele) {
+        if (ele.status === "pendente") {
+          pending_contador++;
+          setPendingcount(pending_contador);
+        }
+        if (ele.status === "concluida") {
+          concluded_contador++;
+          setConcludedcount(concluded_contador);
+        }
+      });
+    });
+  }, [list, pendingcount, concludedcount]);
 
   return (
     <div className="container-fluid">
       <h1>Dashboard</h1>
-      {/*<Infosection />*/}
+      <Infosection
+        pendingcount={pendingcount}
+        concludedcount={concludedcount}
+      />
 
       <Content lista={list} />
 

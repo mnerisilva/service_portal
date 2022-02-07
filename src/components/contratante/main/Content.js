@@ -63,6 +63,7 @@ function Content({ lista }) {
                   <th>Declarante</th>
                   <th>Cpf</th>
                   <th>Número</th>
+                  <th>Vínculo</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
@@ -74,6 +75,7 @@ function Content({ lista }) {
                       <td>{item.declarante}</td>
                       <td>{item.codigo_unico}</td>
                       <td>{item.numero_declaracao}</td>
+                      <td>{item.vinculo}</td>
                       <td>{item.status}</td>
                       <td className="w-1">
                         <a href="" className="icon">
