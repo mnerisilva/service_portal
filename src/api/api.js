@@ -6,6 +6,7 @@ export const contratante = [
     identificacao: "55853676920",
     pessoa: "pessoa física",
     foto: "assets/faces/male/9.jpg",
+    email: "carlosal@gmail.com",
     endereco: [
       {
         rua: "Rua Trajano",
@@ -22,7 +23,6 @@ export const contratante = [
         celular: "48 98825-2333",
         fixo: "48 3256-5856",
         whats: "48 98825-2333",
-        email: "carlosal@gmail.com",
       },
     ],
     declaracao: [
@@ -85,6 +85,7 @@ export const contratante = [
     identificacao: "55853676920",
     pessoa: "pessoa física",
     foto: "assets/faces/male/4.jpg",
+    email: "nunoleal@gmail.com",
     endereco: [
       {
         rua: "Rua Deodoro",
@@ -101,7 +102,6 @@ export const contratante = [
         celular: "48 99129-5353",
         fixo: "48 3249-2876",
         whats: "48 99129-5353",
-        email: "nunoleal@gmail.com",
       },
     ],
     declaracao: [

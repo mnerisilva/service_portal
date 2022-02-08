@@ -1,9 +1,23 @@
 import { useEffect, useState } from "react";
 import "./Content.css";
+import {
+  Button,
+  Modal,
+  Form,
+  InputGroup,
+  FormControl,
+  Row,
+  Col,
+} from "react-bootstrap";
 
 function Content({ lista }) {
-  function handleButton() {
-    console.log("clicou no botão Add");
+  const values = [true];
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
+
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
   }
 
   const [nomecontratante, setNomecontratante] = useState("");
@@ -15,14 +29,18 @@ function Content({ lista }) {
       <div className="col-lg-5">
         <div className="card">
           <div className="card-header add-contratante">
-            <h3 className="card-title">Contratante</h3>{" "}
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={handleButton}
-            >
-              <i className="fa fa-plus"></i>
-            </button>
+            <h3 className="card-title">Contratante</h3>
+            {values.map((v, idx) => (
+              <Button
+                variant="outline-secondary"
+                key={idx}
+                className="btn btn-outline-secondary me-2"
+                onClick={() => handleShow(v)}
+              >
+                <i className="fa fa-plus fa-2x"></i>
+                {typeof v === "string" && `below ${v.split("-")[0]}`}
+              </Button>
+            ))}
           </div>
           <div className="table-responsive">
             <table className="table card-table table-striped table-vcenter">
@@ -103,66 +121,114 @@ function Content({ lista }) {
         </div>
       </div>
 
-      {/*<div className="col-md-6">
-        <div className="row">
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body text-center">
-                <div className="h5">New feedback</div>
-                <div className="display-4 font-weight-bold mb-4">62</div>
-                <div className="progress progress-sm">
-                  <div
-                    className="progress-bar bg-red"
-                    style={{ width: "28%" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body text-center">
-                <div className="h5">Today profit</div>
-                <div className="display-4 font-weight-bold mb-4">$652</div>
-                <div className="progress progress-sm">
-                  <div
-                    className="progress-bar bg-green"
-                    style={{ width: "84%" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body text-center">
-                <div className="h5">New feedback</div>
-                <div className="display-4 font-weight-bold mb-4">62</div>
-                <div className="progress progress-sm">
-                  <div
-                    className="progress-bar bg-red"
-                    style={{ width: "28%" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body text-center">
-                <div className="h5">Today profit</div>
-                <div className="display-4 font-weight-bold mb-4">$652</div>
-                <div className="progress progress-sm">
-                  <div
-                    className="progress-bar bg-green"
-                    style={{ width: "84%" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>*/}
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <>
+            <Form>
+              <Form.Group
+                as={Row}
+                className="mb-3"
+                controlId="formHorizontalEmail"
+              >
+                <Form.Label column sm={1}>
+                  Email
+                </Form.Label>
+                <Col sm={3}>
+                  <Form.Control type="email" placeholder="Email" />
+                </Col>
+              </Form.Group>
+
+              <Form.Group
+                as={Row}
+                className="mb-3"
+                controlId="formHorizontalPassword"
+              >
+                <Form.Label column sm={1}>
+                  Nome
+                </Form.Label>
+                <Col sm={3}>
+                  <Form.Control type="text" placeholder="nome" />
+                </Col>
+              </Form.Group>
+
+              <Form.Group
+                as={Row}
+                className="mb-3"
+                controlId="formHorizontalPassword"
+              >
+                <Form.Label column sm={1}>
+                  Cpf
+                </Form.Label>
+                <Col sm={3}>
+                  <Form.Control type="text" placeholder="cpf" />
+                </Col>
+              </Form.Group>
+
+              <Form.Group
+                as={Row}
+                className="mb-3"
+                controlId="formHorizontalPassword"
+              >
+                <Form.Label column sm={1}>
+                  Tipo
+                </Form.Label>
+                <Col sm={3}>
+                  <Form.Select defaultValue="Choose...">
+                    <option>Escolha...</option>
+                    <option value="1">Pessoa Física</option>
+                    <option value="2">Pessoa Jurídica</option>
+                  </Form.Select>
+                </Col>
+              </Form.Group>
+              <fieldset>
+                <Form.Group as={Row} className="mb-3">
+                  <Form.Label as="legend" column sm={1}>
+                    Radios
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Check
+                      type="radio"
+                      label="first radio"
+                      name="formHorizontalRadios"
+                      id="formHorizontalRadios1"
+                    />
+                    <Form.Check
+                      type="radio"
+                      label="second radio"
+                      name="formHorizontalRadios"
+                      id="formHorizontalRadios2"
+                    />
+                    <Form.Check
+                      type="radio"
+                      label="third radio"
+                      name="formHorizontalRadios"
+                      id="formHorizontalRadios3"
+                    />
+                  </Col>
+                </Form.Group>
+              </fieldset>
+              <Form.Group
+                as={Row}
+                className="mb-3"
+                controlId="formHorizontalCheck"
+              >
+                <Col sm={{ span: 3, offset: 1 }}>
+                  <Form.Check label="Remember me" />
+                </Col>
+              </Form.Group>
+
+              <Form.Group as={Row} className="mb-3">
+                <Col sm={{ span: 3, offset: 1 }}>
+                  <Button type="submit">Sign in</Button>
+                </Col>
+              </Form.Group>
+            </Form>
+          </>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }

@@ -4,13 +4,3 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.add-contratante i {
-  font-size: 2em;
-  color: olivedrab;
-}
-
-.add-contratante i:hover {
-  color: #fff;
-  cursor: pointer;
-}
