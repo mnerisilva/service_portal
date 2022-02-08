@@ -165,3 +165,8 @@ a {
 .card-hover-shadow {
   transition: 0.3s;
 }
+
+.modalTitle {
+  color: #ed4c78;
+  font-weight: 600;
+}

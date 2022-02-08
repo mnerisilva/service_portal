@@ -147,12 +147,13 @@ function Content({ lista }) {
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title className="text-dark text-bolder">
-            Modal - CADASTRO DE CONTRATANTE
+            Modal - <span className="modalTitle">CADASTRO DE CONTRATANTE</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <>
             <Form>
+              <h2>Dados pessoais</h2>
               <Form.Group
                 as={Row}
                 className="mb-3"
@@ -169,7 +170,7 @@ function Content({ lista }) {
               <Form.Group
                 as={Row}
                 className="mb-3"
-                controlId="formHorizontalPassword"
+                controlId="formHorizontalNome"
               >
                 <Form.Label column sm={1}>
                   Nome
@@ -186,7 +187,7 @@ function Content({ lista }) {
               <Form.Group
                 as={Row}
                 className="mb-3"
-                controlId="formHorizontalPassword"
+                controlId="formHorizontalCpf"
               >
                 <Form.Label column sm={1}>
                   Cpf
@@ -213,6 +214,105 @@ function Content({ lista }) {
                       name="formHorizontalRadios"
                       id="formHorizontalRadios2"
                     />
+                  </Col>
+                </Form.Group>
+                <h2>Endereço</h2>
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formHorizontalRua"
+                >
+                  <Form.Label column sm={1}>
+                    Rua
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Control type="text" placeholder="rua" />
+                  </Col>
+                </Form.Group>
+
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formHorizontalNumero"
+                >
+                  <Form.Label column sm={1}>
+                    Número
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Control
+                      type="text"
+                      placeholder="Número"
+                      variant="form-control-light"
+                    />
+                  </Col>
+                </Form.Group>
+
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formHorizontalComplemento"
+                >
+                  <Form.Label column sm={1}>
+                    Compelmento
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Control type="text" placeholder="complemento" />
+                  </Col>
+                </Form.Group>
+
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formHorizontalBairro"
+                >
+                  <Form.Label column sm={1}>
+                    Bairro
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Control type="text" placeholder="bairro" />
+                  </Col>
+                </Form.Group>
+
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formHorizontalCep"
+                >
+                  <Form.Label column sm={1}>
+                    Cep
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Control
+                      type="text"
+                      placeholder="cep"
+                      variant="form-control-light"
+                    />
+                  </Col>
+                </Form.Group>
+
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formHorizontalMunicipio"
+                >
+                  <Form.Label column sm={1}>
+                    Município
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Control type="text" placeholder="municipio" />
+                  </Col>
+                </Form.Group>
+
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formHorizontalUf"
+                >
+                  <Form.Label column sm={1}>
+                    Uf
+                  </Form.Label>
+                  <Col sm={3}>
+                    <Form.Control type="text" placeholder="Uf" />
                   </Col>
                 </Form.Group>
               </fieldset>
