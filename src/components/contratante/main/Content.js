@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Content.css";
 
 function Content({ lista }) {
   const [nomecontratante, setNomecontratante] = useState("");
@@ -9,8 +10,11 @@ function Content({ lista }) {
     <div className="row">
       <div className="col-lg-5">
         <div className="card">
-          <div className="card-header">
-            <h3 className="card-title">Contratante</h3>
+          <div className="card-header add-contratante">
+            <h3 className="card-title">Contratante</h3>{" "}
+            <button type="button" className="btn btn-outline-secondary">
+              <i className="fa fa-plus"></i>
+            </button>
           </div>
           <div className="table-responsive">
             <table className="table card-table table-striped table-vcenter">
