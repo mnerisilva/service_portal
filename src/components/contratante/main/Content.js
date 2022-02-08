@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import "./Content.css";
 
 function Content({ lista }) {
+  function handleButton() {
+    console.log("clicou no botão Add");
+  }
+
   const [nomecontratante, setNomecontratante] = useState("");
   useEffect(() => {
     setNomecontratante(lista[1].nome);
@@ -12,7 +16,11 @@ function Content({ lista }) {
         <div className="card">
           <div className="card-header add-contratante">
             <h3 className="card-title">Contratante</h3>{" "}
-            <button type="button" className="btn btn-outline-secondary">
+            <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={handleButton}
+            >
               <i className="fa fa-plus"></i>
             </button>
           </div>
