@@ -1,4 +1,5 @@
 import Card from "../card/Card";
+import Card_ from "../card/Card_";
 function Infosection({ pendingcount, concludedcount }) {
   return (
     <div className="row">
@@ -19,11 +20,11 @@ function Infosection({ pendingcount, concludedcount }) {
         />
       </div>
       <div className="col-12 col-sm-12 col-lg-4">
-        <Card
-          bt_classColor="text-red"
-          percent="-1%"
-          value="621"
-          label="Products"
+        <Card_
+          bt_classColor="text-green"
+          percent="3%"
+          value={pendingcount}
+          label="Declarações pendentes"
         />
       </div>
     </div>

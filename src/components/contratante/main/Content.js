@@ -32,7 +32,7 @@ function Content({ lista }) {
             <h3 className="card-title">Contratante</h3>
             {values.map((v, idx) => (
               <Button
-                variant="outline-secondary"
+                variant="btn btn-ghost-darky"
                 key={idx}
                 className="btn btn-outline-secondary me-2"
                 onClick={() => handleShow(v)}
@@ -43,7 +43,8 @@ function Content({ lista }) {
             ))}
           </div>
           <div className="table-responsive">
-            <table className="table card-table table-striped table-vcenter">
+            {/*<table className="table card-table table-striped table-vcenter">*/}
+            <table className="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle table-striped">
               <thead>
                 <tr>
                   <th colSpan="2">Nome</th>
@@ -87,7 +88,7 @@ function Content({ lista }) {
             <h3 className="card-title">Declarantes de: {nomecontratante}</h3>
           </div>
           <div className="table-responsive">
-            <table className="table card-table table-striped table-vcenter">
+            <table className="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle">
               <thead>
                 <tr>
                   <th>Declarante</th>
@@ -106,7 +107,10 @@ function Content({ lista }) {
                       <td>{item.codigo_unico}</td>
                       <td>{item.numero_declaracao}</td>
                       <td>{item.vinculo}</td>
-                      <td>{item.status}</td>
+                      <td>
+                        <span class="legend-indicator bg-warning"></span>
+                        {item.status}
+                      </td>
                       <td className="w-1">
                         <a href="" className="icon">
                           <i className="fa fa-trash"></i>
@@ -121,9 +125,30 @@ function Content({ lista }) {
         </div>
       </div>
 
+      <a className="card card-hover-shadow h-100" href="#">
+        <div className="card-body">
+          <h6 className="card-subtitle">Total Users</h6>
+
+          <div className="row align-items-center gx-2 mb-1">
+            <div className="col-6">
+              <span className="card-title h2">72,540</span>
+            </div>
+
+            <div className="col-6"></div>
+          </div>
+
+          <span class="badge badge-soft-success">
+            <i class="tio-trending-up"></i> 12.5%
+          </span>
+          <span class="text-body font-size-sm ml-1">from 70,104</span>
+        </div>
+      </a>
+
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal</Modal.Title>
+          <Modal.Title className="text-dark text-bolder">
+            Modal - CADASTRO DE CONTRATANTE
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <>
@@ -150,7 +175,11 @@ function Content({ lista }) {
                   Nome
                 </Form.Label>
                 <Col sm={3}>
-                  <Form.Control type="text" placeholder="nome" />
+                  <Form.Control
+                    type="text"
+                    placeholder="nome"
+                    variant="form-control-light"
+                  />
                 </Col>
               </Form.Group>
 
@@ -166,46 +195,23 @@ function Content({ lista }) {
                   <Form.Control type="text" placeholder="cpf" />
                 </Col>
               </Form.Group>
-
-              <Form.Group
-                as={Row}
-                className="mb-3"
-                controlId="formHorizontalPassword"
-              >
-                <Form.Label column sm={1}>
-                  Tipo
-                </Form.Label>
-                <Col sm={3}>
-                  <Form.Select defaultValue="Choose...">
-                    <option>Escolha...</option>
-                    <option value="1">Pessoa Física</option>
-                    <option value="2">Pessoa Jurídica</option>
-                  </Form.Select>
-                </Col>
-              </Form.Group>
               <fieldset>
                 <Form.Group as={Row} className="mb-3">
                   <Form.Label as="legend" column sm={1}>
-                    Radios
+                    Tipo/Pessoa
                   </Form.Label>
                   <Col sm={3}>
                     <Form.Check
                       type="radio"
-                      label="first radio"
+                      label="Física"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios1"
                     />
                     <Form.Check
                       type="radio"
-                      label="second radio"
+                      label="Jurídica"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios2"
-                    />
-                    <Form.Check
-                      type="radio"
-                      label="third radio"
-                      name="formHorizontalRadios"
-                      id="formHorizontalRadios3"
                     />
                   </Col>
                 </Form.Group>
@@ -222,7 +228,7 @@ function Content({ lista }) {
 
               <Form.Group as={Row} className="mb-3">
                 <Col sm={{ span: 3, offset: 1 }}>
-                  <Button type="submit">Sign in</Button>
+                  <Button type="submit">Salvar</Button>
                 </Col>
               </Form.Group>
             </Form>
