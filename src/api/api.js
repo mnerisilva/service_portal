@@ -145,7 +145,7 @@ export const contratante = [
         vinculo: "amigo",
         pessoa: "física",
         numero_declaracao: "24554546335454545532",
-        status: "concluida",
+        status: "pendente",
         historico: [
           {
             id_historico: "2022165566689",
