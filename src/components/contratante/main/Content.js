@@ -171,7 +171,7 @@ function Content({ lista }) {
                     />
                     <label htmlFor="email">Email</label>
                   </div>
-                  <div className="form-floating">
+                  <div className="form-floating mb-3">
                     <input
                       type="text"
                       className="form-control"
@@ -180,30 +180,96 @@ function Content({ lista }) {
                     />
                     <label htmlFor="nome">Nome</label>
                   </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="cpf"
+                      placeholder="Cpf"
+                    />
+                    <label htmlFor="cpf">Cpf</label>
+                  </div>
+                  <div class="form-floating">
+                    <select
+                      class="form-select"
+                      id="pessoa"
+                      aria-label="Física / Jurídica"
+                    >
+                      <option selected>Selecione...</option>
+                      <option value="1">Física</option>
+                      <option value="2">Jurídica</option>
+                    </select>
+                    <label for="pessoa">Pessoa</label>
+                  </div>
                 </div>
                 <div className="col-lg-4">
                   <h3>Endereço</h3>
                   <div className="form-floating mb-3">
                     <input
-                      type="email"
+                      type="text"
                       className="form-control"
-                      id="floatingInput"
-                      placeholder="name@example.com"
+                      id="rua"
+                      placeholder="Rua"
                     />
-                    <label htmlFor="floatingInput">Email address</label>
+                    <label htmlFor="rua">Rua</label>
                   </div>
-                  <div className="form-floating">
+                  <div className="form-floating mb-3">
                     <input
-                      type="password"
+                      type="text"
                       className="form-control"
-                      id="floatingPassword"
-                      placeholder="Password"
+                      id="numero"
+                      placeholder="Número"
                     />
-                    <label htmlFor="floatingPassword">Password</label>
+                    <label htmlFor="floatingPassword">Número</label>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="complemento"
+                      placeholder="Complemento"
+                    />
+                    <label htmlFor="complemento">Complemento</label>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="bairro"
+                      placeholder="Bairro"
+                    />
+                    <label htmlFor="bairro">Bairro</label>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="cep"
+                      placeholder="Cep"
+                    />
+                    <label htmlFor="municipio">Cep</label>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="municipio"
+                      placeholder="Município"
+                    />
+                    <label htmlFor="municipio">Município</label>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="uf"
+                      placeholder="UF"
+                    />
+                    <label htmlFor="uf">UF</label>
                   </div>
                 </div>
                 <div className="col-lg-4">
-                  <h3>Contato</h3>
+                  <h3>Dados de contato</h3>
                   <div className="form-floating mb-3">
                     <input
                       type="email"
