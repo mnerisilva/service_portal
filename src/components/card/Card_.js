@@ -13,10 +13,10 @@ function Card({ bt_classColor, percent, value, label }) {
             <div className="col-6"></div>
           </div>
 
-          <span class="badge badge-soft-success">
-            <i class="tio-trending-up"></i> {percent}
+          <span className="badge badge-soft-success">
+            <i className="tio-trending-up"></i> {percent}
           </span>
-          <span class="text-body font-size-sm ml-1">from 70,104</span>
+          <span className="text-body font-size-sm ml-1">from 70,104</span>
         </div>
       </a>
     </>

@@ -11,20 +11,18 @@ import {
 } from "react-bootstrap";
 
 function Content({ lista }) {
-  //const values = true;
-  const [values, setValues] = useState(true);
+  const values = [true];
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
 
-  function handleStatus(status) {
-    setShow(status);
-  }
-
   function handleShow(breakpoint) {
-    console.log("v: " + breakpoint);
-    console.log("BREAKPOINT: " + breakpoint);
     setFullscreen(breakpoint);
     setShow(true);
+  }
+
+  function handleForm(e) {
+    e.preventDefault();
+    console.log("Submeteu o form");
   }
 
   const [nomecontratante, setNomecontratante] = useState("");
@@ -37,15 +35,17 @@ function Content({ lista }) {
         <div className="card">
           <div className="card-header add-contratante">
             <h3 className="card-title">Contratante</h3>
-            {
+            {values.map((v, idx) => (
               <Button
                 variant="btn btn-ghost-darky"
+                key={idx}
                 className="btn btn-outline-secondary me-2"
-                onClick={() => handleShow(values)}
+                onClick={() => handleShow(v)}
               >
                 <i className="fa fa-plus fa-2x"></i>
+                {typeof v === "string" && `below ${v.split("-")[0]}`}
               </Button>
-            }
+            ))}
           </div>
           <div className="table-responsive">
             {/*<table className="table card-table table-striped table-vcenter">*/}
@@ -148,86 +148,7 @@ function Content({ lista }) {
           <span className="text-body font-size-sm ml-1">from 70,104</span>
         </div>
       </a>
-
-      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title className="text-dark text-bolder">
-            Modal - <span className="modalTitle">CADASTRO DE CONTRATANTE</span>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <>
-            <form>
-              <div className="row">
-                <div className="col-lg-4">
-                  <h3>Dados pessoais</h3>
-                  <div className="form-floating mb-3">
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="email"
-                      placeholder="Email"
-                      name="email"
-                    />
-                    <label htmlFor="email">Email</label>
-                  </div>
-                  <div className="form-floating">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="nome"
-                      placeholder="Nome"
-                    />
-                    <label htmlFor="nome">Nome</label>
-                  </div>
-                </div>
-                <div className="col-lg-4">
-                  <h3>Endereço</h3>
-                  <div className="form-floating mb-3">
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="floatingInput"
-                      placeholder="name@example.com"
-                    />
-                    <label htmlFor="floatingInput">Email address</label>
-                  </div>
-                  <div className="form-floating">
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="floatingPassword"
-                      placeholder="Password"
-                    />
-                    <label htmlFor="floatingPassword">Password</label>
-                  </div>
-                </div>
-                <div className="col-lg-4">
-                  <h3>Contato</h3>
-                  <div className="form-floating mb-3">
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="floatingInput"
-                      placeholder="name@example.com"
-                    />
-                    <label htmlFor="floatingInput">Email address</label>
-                  </div>
-                  <div className="form-floating">
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="floatingPassword"
-                      placeholder="Password"
-                    />
-                    <label htmlFor="floatingPassword">Password</label>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </>
-        </Modal.Body>
-      </Modal>
+      <Modal values={values} fullscreen={fullscreen} show={show} />
     </div>
   );
 }
