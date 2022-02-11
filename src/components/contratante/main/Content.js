@@ -10,7 +10,7 @@ import {
   Col,
 } from "react-bootstrap";
 
-function Content({ lista }) {
+function Content({ lista, add }) {
   //const values = true;
   const [values, setValues] = useState(true);
   const [fullscreen, setFullscreen] = useState(true);
@@ -22,9 +22,9 @@ function Content({ lista }) {
   const [cpf, setCpf] = useState("");
   const [pessoa, setPessoa] = useState("");
   const [rua, setRua] = useState("");
-  const [endereco, setEndereco] = useState("");
+  const [numero, setNumero] = useState("");
   const [complemento, setComplemento] = useState("");
-  const [bairro, setBarro] = useState("");
+  const [bairro, setBairro] = useState("");
   const [cep, setCep] = useState("");
   const [municipio, setMunicipio] = useState("");
   const [uf, setUf] = useState("");
@@ -32,9 +32,71 @@ function Content({ lista }) {
   const [fixo, setFixo] = useState("");
   const [whats, setWhats] = useState("");
 
-  function handleForm(e) {
+  function handleInput(e) {
+    if (e.target.name === "email") setEmail(e.target.value);
+    if (e.target.name === "nome") setNome(e.target.value);
+    if (e.target.name === "cpf") setCpf(e.target.value);
+    if (e.target.name === "pessoa") setPessoa(e.target.value);
+    if (e.target.name === "rua") setRua(e.target.value);
+    if (e.target.name === "numero") setNumero(e.target.value);
+    if (e.target.name === "complemento") setComplemento(e.target.value);
+    if (e.target.name === "bairro") setBairro(e.target.value);
+    if (e.target.name === "cep") setCep(e.target.value);
+    if (e.target.name === "municipio") setMunicipio(e.target.value);
+    if (e.target.name === "uf") setUf(e.target.value);
+    if (e.target.name === "celular") setCelular(e.target.value);
+    if (e.target.name === "fixo") setFixo(e.target.value);
+    if (e.target.name === "whats") setWhats(e.target.value);
+  }
+
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target);
+    console.log("email: " + email);
+    console.log("nome: " + nome);
+    console.log("cpf: " + cpf);
+    console.log("pessoa: " + pessoa);
+    console.log("rua: " + rua);
+    console.log("numero: " + numero);
+    console.log("complemento: " + complemento);
+    console.log("bairro: " + bairro);
+    console.log("cep: " + cep);
+    console.log("municipio: " + municipio);
+    console.log("uf: " + uf);
+    console.log("celular: " + celular);
+    console.log("fixo: " + fixo);
+    console.log("whats: " + whats);
+    let nextId = lista.length + 1;
+    let _pessoa = pessoa === "1" ? "fisica" : "juridica";
+    let objeto = {
+      id: nextId,
+      codigo_cpf: cpf,
+      nome: nome,
+      identificacao: cpf,
+      pessoa: _pessoa,
+      foto: "assets/faces/male/9.jpg",
+      email: email,
+      endereco: [
+        {
+          rua: rua,
+          numero: numero,
+          complemento: complemento,
+          bairro: bairro,
+          cep: cep,
+          municipio: municipio,
+          uf: uf,
+        },
+      ],
+      contato: [
+        {
+          celular: celular,
+          fixo: fixo,
+          whats: whats,
+        },
+      ],
+      declaracao: [],
+    };
+    add(objeto);
+    console.log(objeto);
   }
 
   function handleShow(breakpoint) {
@@ -174,7 +236,7 @@ function Content({ lista }) {
         </Modal.Header>
         <Modal.Body>
           <>
-            <form onSubmit={handleForm}>
+            <form onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-lg-4 tab-form">
                   <h3>Dados pessoais</h3>
@@ -185,6 +247,8 @@ function Content({ lista }) {
                       id="email"
                       placeholder="Email"
                       name="email"
+                      onChange={handleInput}
+                      value={email}
                     />
                     <label htmlFor="email">Email</label>
                   </div>
@@ -194,6 +258,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="nome"
                       placeholder="Nome"
+                      name="nome"
+                      onChange={handleInput}
+                      value={nome}
                     />
                     <label htmlFor="nome">Nome</label>
                   </div>
@@ -203,6 +270,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="cpf"
                       placeholder="Cpf"
+                      name="cpf"
+                      onChange={handleInput}
+                      value={cpf}
                     />
                     <label htmlFor="cpf">Cpf</label>
                   </div>
@@ -211,6 +281,9 @@ function Content({ lista }) {
                       className="form-select"
                       id="pessoa"
                       aria-label="Física / Jurídica"
+                      name="pessoa"
+                      onChange={handleInput}
+                      value={pessoa}
                     >
                       <option value="DEFAULT" disabled>
                         Selecione...
@@ -229,6 +302,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="rua"
                       placeholder="Rua"
+                      name="rua"
+                      onChange={handleInput}
+                      value={rua}
                     />
                     <label htmlFor="rua">Rua</label>
                   </div>
@@ -238,6 +314,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="numero"
                       placeholder="Número"
+                      name="numero"
+                      onChange={handleInput}
+                      value={numero}
                     />
                     <label htmlFor="floatingPassword">Número</label>
                   </div>
@@ -247,6 +326,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="complemento"
                       placeholder="Complemento"
+                      name="complemento"
+                      onChange={handleInput}
+                      value={complemento}
                     />
                     <label htmlFor="complemento">Complemento</label>
                   </div>
@@ -256,6 +338,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="bairro"
                       placeholder="Bairro"
+                      name="bairro"
+                      onChange={handleInput}
+                      value={bairro}
                     />
                     <label htmlFor="bairro">Bairro</label>
                   </div>
@@ -265,6 +350,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="cep"
                       placeholder="Cep"
+                      name="cep"
+                      onChange={handleInput}
+                      value={cep}
                     />
                     <label htmlFor="municipio">Cep</label>
                   </div>
@@ -274,6 +362,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="municipio"
                       placeholder="Município"
+                      name="municipio"
+                      onChange={handleInput}
+                      value={municipio}
                     />
                     <label htmlFor="municipio">Município</label>
                   </div>
@@ -283,6 +374,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="uf"
                       placeholder="UF"
+                      name="uf"
+                      onChange={handleInput}
+                      value={uf}
                     />
                     <label htmlFor="uf">UF</label>
                   </div>
@@ -295,6 +389,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="celular"
                       placeholder="Celular"
+                      name="celular"
+                      onChange={handleInput}
+                      value={celular}
                     />
                     <label htmlFor="celular">Celular</label>
                   </div>
@@ -304,6 +401,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="fixo"
                       placeholder="Telefone fixo"
+                      name="fixo"
+                      onChange={handleInput}
+                      value={fixo}
                     />
                     <label htmlFor="fixo">Telefone fixo</label>
                   </div>
@@ -313,6 +413,9 @@ function Content({ lista }) {
                       className="form-control"
                       id="whats"
                       placeholder="WhatsApp"
+                      name="whats"
+                      onChange={handleInput}
+                      value={whats}
                     />
                     <label htmlFor="whats">WhatsApp</label>
                   </div>

@@ -26,6 +26,11 @@ function App() {
     });
   }, [list, pendingcount, concludedcount]);
 
+  function add(item) {
+    setList([...list, item]);
+    console.log(list);
+  }
+
   return (
     <div className="container-fluid">
       <h1>Dashboard</h1>
@@ -34,7 +39,7 @@ function App() {
         concludedcount={concludedcount}
       />
 
-      <Content lista={list} />
+      <Content lista={list} add={add} />
 
       <div className="row">
         <div className="col-sm-6 col-lg-3">
