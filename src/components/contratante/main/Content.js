@@ -16,8 +16,25 @@ function Content({ lista }) {
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
 
-  function handleStatus(status) {
-    setShow(status);
+  // campos formulário
+  const [email, setEmail] = useState("");
+  const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [pessoa, setPessoa] = useState("");
+  const [rua, setRua] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [complemento, setComplemento] = useState("");
+  const [bairro, setBarro] = useState("");
+  const [cep, setCep] = useState("");
+  const [municipio, setMunicipio] = useState("");
+  const [uf, setUf] = useState("");
+  const [celular, setCelular] = useState("");
+  const [fixo, setFixo] = useState("");
+  const [whats, setWhats] = useState("");
+
+  function handleForm(e) {
+    e.preventDefault();
+    console.log(e.target);
   }
 
   function handleShow(breakpoint) {
@@ -157,9 +174,9 @@ function Content({ lista }) {
         </Modal.Header>
         <Modal.Body>
           <>
-            <form>
+            <form onSubmit={handleForm}>
               <div className="row">
-                <div className="col-lg-4">
+                <div className="col-lg-4 tab-form">
                   <h3>Dados pessoais</h3>
                   <div className="form-floating mb-3">
                     <input
@@ -189,20 +206,22 @@ function Content({ lista }) {
                     />
                     <label htmlFor="cpf">Cpf</label>
                   </div>
-                  <div class="form-floating">
+                  <div className="form-floating">
                     <select
-                      class="form-select"
+                      className="form-select"
                       id="pessoa"
                       aria-label="Física / Jurídica"
                     >
-                      <option selected>Selecione...</option>
+                      <option value="DEFAULT" disabled>
+                        Selecione...
+                      </option>
                       <option value="1">Física</option>
                       <option value="2">Jurídica</option>
                     </select>
-                    <label for="pessoa">Pessoa</label>
+                    <label htmlFor="pessoa">Pessoa</label>
                   </div>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-4 tab-form">
                   <h3>Endereço</h3>
                   <div className="form-floating mb-3">
                     <input
@@ -268,28 +287,43 @@ function Content({ lista }) {
                     <label htmlFor="uf">UF</label>
                   </div>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-4 tab-form">
                   <h3>Dados de contato</h3>
                   <div className="form-floating mb-3">
                     <input
-                      type="email"
+                      type="text"
                       className="form-control"
-                      id="floatingInput"
-                      placeholder="name@example.com"
+                      id="celular"
+                      placeholder="Celular"
                     />
-                    <label htmlFor="floatingInput">Email address</label>
+                    <label htmlFor="celular">Celular</label>
                   </div>
-                  <div className="form-floating">
+                  <div className="form-floating mb-3">
                     <input
-                      type="password"
+                      type="text"
                       className="form-control"
-                      id="floatingPassword"
-                      placeholder="Password"
+                      id="fixo"
+                      placeholder="Telefone fixo"
                     />
-                    <label htmlFor="floatingPassword">Password</label>
+                    <label htmlFor="fixo">Telefone fixo</label>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="whats"
+                      placeholder="WhatsApp"
+                    />
+                    <label htmlFor="whats">WhatsApp</label>
                   </div>
                 </div>
               </div>
+              <button
+                type="submit"
+                className="btn btn-outline-primary salvar-cadastro-contratante"
+              >
+                Salvar
+              </button>
             </form>
           </>
         </Modal.Body>

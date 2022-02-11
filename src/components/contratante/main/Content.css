@@ -1,3 +1,15 @@
+.tab-form {
+  border-left: solid thin #dedede;
+  border-radius: 3px 25px;
+  padding: 30px;
+  background-color: #f8f8f8;
+  box-shadow: 1px 2px 3px 4px #f1f1f1;
+}
+
+.salvar-cadastro-contratante {
+  margin-top: 15px;
+}
+
 .add-contratante {
   display: flex;
   flex-direction: row;
