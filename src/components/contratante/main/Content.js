@@ -9,6 +9,8 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+import TableContratante from "../contratante_table/TableContratante";
+import TableDeclarante from "../contratante_table/TableDeclarantes";
 
 function Content({ lista, add }) {
   //const values = true;
@@ -127,41 +129,7 @@ function Content({ lista, add }) {
             }
           </div>
           <div className="table-responsive">
-            {/*<table className="table card-table table-striped table-vcenter">*/}
-            <table className="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle table-striped">
-              <thead>
-                <tr>
-                  <th colSpan="2">Nome</th>
-                  <th>Cpf</th>
-                  <th>Cidade</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {lista.map((item) => {
-                  return (
-                    <tr key={item.id}>
-                      <td className="w-1">
-                        <span
-                          className="avatar"
-                          style={{
-                            backgroundImage: `url(${item.foto})`,
-                          }}
-                        ></span>
-                      </td>
-                      <td>{item.nome}</td>
-                      <td>{item.codigo_cpf}</td>
-                      <td>{item.endereco[0].municipio}</td>
-                      <td className="w-1">
-                        <a href="" className="icon">
-                          <i className="fa fa-trash text-dark"></i>
-                        </a>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <TableContratante lista={lista} />
           </div>
         </div>
       </div>
@@ -172,39 +140,7 @@ function Content({ lista, add }) {
             <h3 className="card-title">Declarantes de: {nomecontratante}</h3>
           </div>
           <div className="table-responsive">
-            <table className="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle">
-              <thead>
-                <tr>
-                  <th>Declarante</th>
-                  <th>Cpf</th>
-                  <th>Número</th>
-                  <th>Vínculo</th>
-                  <th>Status</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {lista[1].declaracao.map((item) => {
-                  return (
-                    <tr key={item.id}>
-                      <td>{item.declarante}</td>
-                      <td>{item.codigo_unico}</td>
-                      <td>{item.numero_declaracao}</td>
-                      <td>{item.vinculo}</td>
-                      <td>
-                        <span className="legend-indicator bg-warning"></span>
-                        {item.status}
-                      </td>
-                      <td className="w-1">
-                        <a href="" className="icon">
-                          <i className="fa fa-trash text-dark"></i>
-                        </a>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <TableDeclarante lista={lista} />
           </div>
         </div>
       </div>
