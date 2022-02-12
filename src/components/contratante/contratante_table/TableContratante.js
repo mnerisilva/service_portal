@@ -24,11 +24,7 @@ function TableContratante({ lista }) {
               <td>{item.nome}</td>
               <td>{item.codigo_cpf}</td>
               <td>{item.endereco[0].municipio}</td>
-              <td className="w-1">
-                <a href="" className="icon">
-                  <i className="fa fa-trash text-dark"></i>
-                </a>
-              </td>
+              <td className="w-1"></td>
             </tr>
           );
         })}

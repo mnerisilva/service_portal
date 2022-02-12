@@ -53,6 +53,7 @@ function Content({ lista, add }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setShow(false);
     console.log("email: " + email);
     console.log("nome: " + nome);
     console.log("cpf: " + cpf);
@@ -124,7 +125,7 @@ function Content({ lista, add }) {
                 className="btn btn-outline-secondary me-2"
                 onClick={() => handleShow(values)}
               >
-                <i className="fa fa-plus fa-2x"></i>
+                <i className="fas fa-plus-circle fa-2x text-dark"></i>
               </Button>
             }
           </div>
@@ -362,6 +363,13 @@ function Content({ lista, add }) {
                 className="btn btn-outline-primary salvar-cadastro-contratante"
               >
                 Salvar
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-secondary cancelar-cadastro-contratante"
+                onClick={() => setShow(false)}
+              >
+                Cancelar
               </button>
             </form>
           </>

@@ -10,6 +10,11 @@
   margin-top: 15px;
 }
 
+.cancelar-cadastro-contratante {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
 .add-contratante {
   display: flex;
   flex-direction: row;
