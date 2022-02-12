@@ -70,13 +70,24 @@ function Content({ lista, add }) {
     console.log("whats: " + whats);
     let nextId = lista.length + 1;
     let _pessoa = pessoa === "1" ? "fisica" : "juridica";
-    let objeto = {
+    add(montaObjeto(nextId, _pessoa));
+  }
+
+  function handleShow(breakpoint) {
+    console.log("v: " + breakpoint);
+    console.log("BREAKPOINT: " + breakpoint);
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
+
+  function montaObjeto(nextId, _pessoa) {
+    return {
       id: nextId,
       codigo_cpf: cpf,
       nome: nome,
       identificacao: cpf,
       pessoa: _pessoa,
-      foto: "assets/faces/male/9.jpg",
+      foto: "",
       email: email,
       endereco: [
         {
@@ -98,15 +109,6 @@ function Content({ lista, add }) {
       ],
       declaracao: [],
     };
-    add(objeto);
-    console.log(objeto);
-  }
-
-  function handleShow(breakpoint) {
-    console.log("v: " + breakpoint);
-    console.log("BREAKPOINT: " + breakpoint);
-    setFullscreen(breakpoint);
-    setShow(true);
   }
 
   const [nomecontratante, setNomecontratante] = useState("");
@@ -121,11 +123,11 @@ function Content({ lista, add }) {
             <h3 className="card-title">Contratante</h3>
             {
               <Button
-                variant="btn btn-ghost-darky"
-                className="btn btn-outline-secondary me-2"
+                variant=""
+                className="btn btn-outline-secondary me-2 shadow-none"
                 onClick={() => handleShow(values)}
               >
-                <i className="fas fa-plus-circle fa-2x text-dark"></i>
+                <i className="fa fa-plus-circle fa-2x"></i>
               </Button>
             }
           </div>

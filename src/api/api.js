@@ -5,7 +5,7 @@ export const contratante = [
     nome: "Carlos Alberto Xavier",
     identificacao: "55853676920",
     pessoa: "pessoa física",
-    foto: "assets/faces/male/9.jpg",
+    foto: "",
     email: "carlosal@gmail.com",
     endereco: [
       {

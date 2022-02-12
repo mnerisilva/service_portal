@@ -19,7 +19,9 @@ function TableContratante({ lista }) {
                   style={{
                     backgroundImage: `url(${item.foto})`,
                   }}
-                ></span>
+                >
+                  {item.foto ? "" : item.nome.substr(0, 2).toUpperCase()}
+                </span>
               </td>
               <td>{item.nome}</td>
               <td>{item.codigo_cpf}</td>
