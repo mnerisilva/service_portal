@@ -13,10 +13,11 @@ import TableContratante from "../contratante_table/TableContratante";
 import TableDeclarante from "../contratante_table/TableDeclarantes";
 
 function Content({ lista, add }) {
-  //const values = true;
   const [values, setValues] = useState(true);
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
+
+  const [nomecontratante, setNomecontratante] = useState("");
 
   // campos formulário
   const [email, setEmail] = useState("");
@@ -111,7 +112,6 @@ function Content({ lista, add }) {
     };
   }
 
-  const [nomecontratante, setNomecontratante] = useState("");
   useEffect(() => {
     setNomecontratante(lista[1].nome);
   }, []);
